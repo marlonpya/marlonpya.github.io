@@ -1,0 +1,553 @@
+<!DOCTYPE html>
+<html lang="es" data-tema="claro">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Marlon Arteaga — Mobile Lead · Android &amp; iOS</title>
+<meta name="description" content="Marlon Mauro Arteaga Morales. Mobile Lead Android e iOS, arquitectura limpia e IA aplicada a producto. Lima, Perú.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
+<style>
+/* ═══════════════════════════════════════════════════
+   Sistema — hoja de especificaciones técnicas
+   El color codifica plataforma, no decora:
+   morado = Kotlin/Android · naranja = Swift/iOS
+   ═══════════════════════════════════════════════════ */
+:root{
+  --bg:        #F6F7F9;
+  --superficie:#FFFFFF;
+  --tinta:     #0F1419;
+  --suave:     #58626C;
+  --linea:     #E2E6EA;
+  --linea-alta:#C8CFD6;
+
+  --kotlin:    #6E3AF2;
+  --swift:     #DE4225;
+  --cadena:    #0E7C6B;
+
+  --sans: "Instrument Sans", system-ui, -apple-system, sans-serif;
+  --mono: "IBM Plex Mono", ui-monospace, SFMono-Regular, monospace;
+
+  --u: 8px;                 /* rejilla base de 8, como Material */
+  --ancho: 1080px;
+}
+[data-tema="oscuro"]{
+  --bg:        #0F1216;
+  --superficie:#161A20;
+  --tinta:     #E7EBEF;
+  --suave:     #8C959F;
+  --linea:     #232931;
+  --linea-alta:#333B45;
+  --kotlin:    #A98BFF;
+  --swift:     #FF8163;
+  --cadena:    #4FD1B8;
+}
+
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:72px}
+body{
+  margin:0;
+  background:var(--bg);
+  color:var(--tinta);
+  font-family:var(--sans);
+  font-size:16px;
+  line-height:1.6;
+  -webkit-font-smoothing:antialiased;
+  transition:background .25s ease, color .25s ease;
+}
+a{color:inherit;text-decoration:none}
+:focus-visible{outline:2px solid var(--kotlin);outline-offset:3px;border-radius:2px}
+
+.contenedor{max-width:var(--ancho);margin:0 auto;padding:0 32px}
+
+/* ── Barra superior ─────────────────────────────── */
+.barra{
+  position:sticky;top:0;z-index:50;
+  background:color-mix(in srgb, var(--bg) 88%, transparent);
+  backdrop-filter:blur(10px);
+  border-bottom:1px solid var(--linea);
+}
+.barra-fila{
+  display:flex;align-items:center;gap:24px;
+  height:56px;
+  max-width:var(--ancho);margin:0 auto;padding:0 32px;
+}
+.marca{font-family:var(--mono);font-size:13px;font-weight:600;letter-spacing:-.01em}
+.marca::before{content:"@";color:var(--kotlin)}
+.enlaces{display:flex;gap:22px;margin-left:auto}
+.enlaces a{
+  font-family:var(--mono);font-size:12.5px;color:var(--suave);
+  transition:color .18s ease;
+}
+.enlaces a:hover{color:var(--tinta)}
+.tema{
+  font-family:var(--mono);font-size:12.5px;
+  background:none;border:1px solid var(--linea-alta);border-radius:4px;
+  color:var(--suave);padding:5px 10px;cursor:pointer;
+  transition:border-color .18s ease,color .18s ease;
+}
+.tema:hover{border-color:var(--kotlin);color:var(--tinta)}
+
+/* ── Encabezados de sección ─────────────────────── */
+.bloque{padding:calc(var(--u)*11) 0;border-top:1px solid var(--linea)}
+.rotulo{
+  font-family:var(--mono);font-size:12px;font-weight:500;
+  color:var(--suave);margin:0 0 calc(var(--u)*4);
+  letter-spacing:.02em;
+}
+.rotulo::before{content:"// ";color:var(--linea-alta)}
+.titulo{
+  font-size:clamp(1.6rem,3.2vw,2.15rem);
+  font-weight:600;letter-spacing:-.025em;line-height:1.2;
+  margin:0 0 calc(var(--u)*3);
+}
+.parrafo{margin:0 0 calc(var(--u)*2);max-width:62ch;color:var(--suave)}
+.parrafo strong{color:var(--tinta);font-weight:600}
+.parrafo:last-child{margin-bottom:0}
+
+/* ── Portada: bloque de declaración Kotlin ──────── */
+.portada{padding:calc(var(--u)*12) 0 calc(var(--u)*11)}
+.rejilla-portada{display:grid;grid-template-columns:1.05fr .95fr;gap:56px;align-items:start}
+.codigo{
+  background:var(--superficie);
+  border:1px solid var(--linea);
+  border-radius:6px;
+  font-family:var(--mono);
+  font-size:13.5px;
+  line-height:2;
+  padding:calc(var(--u)*3) calc(var(--u)*3.5);
+  overflow-x:auto;
+}
+.codigo .ln{display:block;white-space:pre}
+.k{color:var(--kotlin);font-weight:500}   /* palabra clave */
+.s{color:var(--cadena)}                   /* cadena */
+.c{color:var(--suave);opacity:.75}        /* comentario */
+.caret{
+  display:inline-block;width:7px;height:15px;
+  background:var(--kotlin);vertical-align:-2px;margin-left:2px;
+  animation:parpadeo 1.15s steps(1) infinite;
+}
+@keyframes parpadeo{50%{opacity:0}}
+
+.nombre{font-size:clamp(2rem,4.6vw,3rem);font-weight:700;letter-spacing:-.035em;line-height:1.05;margin:0 0 calc(var(--u)*2)}
+.subtitulo{font-family:var(--mono);font-size:13px;color:var(--suave);margin:0 0 calc(var(--u)*3)}
+.subtitulo .and{color:var(--kotlin)}
+.subtitulo .ios{color:var(--swift)}
+.acciones{display:flex;flex-wrap:wrap;gap:10px;margin-top:calc(var(--u)*4)}
+.btn{
+  font-family:var(--mono);font-size:12.5px;
+  border:1px solid var(--linea-alta);border-radius:5px;
+  padding:9px 15px;color:var(--tinta);
+  transition:border-color .18s ease,background .18s ease;
+}
+.btn:hover{border-color:var(--kotlin)}
+.btn--fuerte{background:var(--kotlin);border-color:var(--kotlin);color:#fff}
+.btn--fuerte:hover{opacity:.88}
+
+/* ── Stack técnico ──────────────────────────────── */
+.stack{
+  display:grid;grid-template-columns:repeat(auto-fit,minmax(232px,1fr));
+  gap:1px;background:var(--linea);
+  border:1px solid var(--linea);border-radius:6px;overflow:hidden;
+  margin-top:calc(var(--u)*5);
+}
+.item{background:var(--superficie);padding:calc(var(--u)*2.5) calc(var(--u)*2.5)}
+.item h3{
+  font-family:var(--mono);font-size:11.5px;font-weight:600;
+  letter-spacing:.06em;text-transform:uppercase;
+  margin:0 0 10px;
+}
+.item[data-p="android"] h3{color:var(--kotlin)}
+.item[data-p="ios"] h3{color:var(--swift)}
+.item[data-p="neutro"] h3{color:var(--suave)}
+.item p{margin:0;font-size:13.5px;line-height:1.55;color:var(--suave)}
+
+/* ── Apps publicadas ────────────────────────────── */
+.fichas{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:16px;margin-top:calc(var(--u)*4)}
+.app{
+  background:var(--superficie);border:1px solid var(--linea);border-radius:6px;
+  padding:calc(var(--u)*3);
+  display:flex;flex-direction:column;
+}
+.app-cab{display:flex;align-items:center;gap:10px;margin-bottom:12px}
+.punto{width:8px;height:8px;border-radius:2px;background:var(--kotlin);flex:none}
+.app h3{font-size:18px;font-weight:600;margin:0;letter-spacing:-.015em}
+.app-org{font-family:var(--mono);font-size:11px;color:var(--suave);margin-left:auto}
+.app p{margin:0 0 16px;font-size:14px;color:var(--suave);line-height:1.55}
+.tags{display:flex;flex-wrap:wrap;gap:6px;list-style:none;margin:0 0 16px;padding:0}
+.tags li{
+  font-family:var(--mono);font-size:11px;color:var(--suave);
+  border:1px solid var(--linea);border-radius:3px;padding:3px 7px;
+}
+.app .btn{margin-top:auto;align-self:flex-start}
+
+/* ── Catálogo de repositorios ───────────────────── */
+.repos{
+  border:1px solid var(--linea);border-radius:6px;overflow:hidden;
+  background:var(--superficie);margin-top:calc(var(--u)*4);
+}
+.repo{
+  display:grid;grid-template-columns:1fr auto;gap:20px;align-items:start;
+  padding:calc(var(--u)*2.5) calc(var(--u)*3);
+  border-bottom:1px solid var(--linea);
+  transition:background .18s ease;
+}
+.repo:last-child{border-bottom:none}
+.repo:hover{background:color-mix(in srgb, var(--kotlin) 5%, var(--superficie))}
+.repo-nom{font-family:var(--mono);font-size:14.5px;font-weight:600;margin:0 0 5px}
+.repo:hover .repo-nom{color:var(--kotlin)}
+.repo-desc{margin:0;font-size:13.5px;color:var(--suave);line-height:1.5;max-width:60ch}
+.repo-meta{
+  font-family:var(--mono);font-size:11.5px;color:var(--suave);
+  text-align:right;white-space:nowrap;line-height:1.9;
+}
+.leng{display:inline-flex;align-items:center;gap:6px}
+.leng i{width:7px;height:7px;border-radius:50%;background:var(--suave);display:inline-block}
+.leng[data-l="Kotlin"] i,.leng[data-l="Java"] i{background:var(--kotlin)}
+.leng[data-l="Swift"] i,.leng[data-l="Objective-C"] i{background:var(--swift)}
+.estado{
+  font-family:var(--mono);font-size:13px;color:var(--suave);
+  padding:calc(var(--u)*3.5);line-height:1.7;
+}
+.estado code{background:var(--bg);border:1px solid var(--linea);border-radius:3px;padding:1px 5px}
+
+/* ── Contacto ───────────────────────────────────── */
+.contacto{
+  border:1px solid var(--linea);border-radius:6px;background:var(--superficie);
+  margin-top:calc(var(--u)*4);
+}
+.fila{
+  display:grid;grid-template-columns:132px 1fr;gap:20px;
+  padding:calc(var(--u)*2) calc(var(--u)*3);
+  border-bottom:1px solid var(--linea);
+  align-items:baseline;
+}
+.fila:last-child{border-bottom:none}
+.fila dt{font-family:var(--mono);font-size:11.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--suave)}
+.fila dd{margin:0;font-size:15px}
+.fila dd a{border-bottom:1px solid transparent;transition:border-color .18s ease,color .18s ease}
+.fila dd a:hover{color:var(--kotlin);border-bottom-color:var(--kotlin)}
+
+.pie{
+  border-top:1px solid var(--linea);
+  font-family:var(--mono);font-size:11.5px;color:var(--suave);
+  padding:calc(var(--u)*3) 0 calc(var(--u)*6);
+}
+
+/* ── Aparición ──────────────────────────────────── */
+.aparece{opacity:0;transform:translateY(10px);transition:opacity .5s ease,transform .5s ease}
+.aparece.visible{opacity:1;transform:none}
+
+/* ── Pantallas chicas ───────────────────────────── */
+@media (max-width:900px){
+  .rejilla-portada{grid-template-columns:1fr;gap:36px}
+  .contenedor,.barra-fila{padding:0 20px}
+}
+@media (max-width:620px){
+  .enlaces{display:none}
+  .repo{grid-template-columns:1fr;gap:10px}
+  .repo-meta{text-align:left}
+  .fila{grid-template-columns:1fr;gap:4px}
+  .codigo{font-size:12.5px;padding:20px}
+}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  .aparece{opacity:1;transform:none;transition:none}
+  .caret{animation:none}
+}
+</style>
+</head>
+<body>
+
+<!-- ══ Barra ══ -->
+<header class="barra">
+  <div class="barra-fila">
+    <a class="marca" href="#inicio">marlonpya</a>
+    <nav class="enlaces">
+      <a href="#perfil">perfil</a>
+      <a href="#apps">apps</a>
+      <a href="#repos">repos</a>
+      <a href="#contacto">contacto</a>
+    </nav>
+    <button class="tema" id="btn-tema" aria-label="Cambiar tema">tema</button>
+  </div>
+</header>
+
+<!-- ══ Portada ══ -->
+<section class="contenedor portada" id="inicio">
+  <div class="rejilla-portada">
+    <div>
+      <h1 class="nombre">Marlon Arteaga<br>Morales</h1>
+      <p class="subtitulo">Mobile Lead · <span class="and">Android</span> &amp; <span class="ios">iOS</span> · Lima, Perú</p>
+      <p class="parrafo">
+        Diseño y sostengo aplicaciones móviles de producción en las dos plataformas.
+        Arquitectura limpia, pruebas y decisiones que aguantan dos años de mantenimiento.
+      </p>
+      <p class="parrafo">
+        Ahora llevo ese mismo criterio a <strong>IA aplicada</strong>: agentes, RAG
+        y orquestación desplegados como infraestructura, no como demo.
+      </p>
+      <div class="acciones">
+        <a class="btn btn--fuerte" href="#contacto">Contactar</a>
+        <a class="btn" href="https://github.com/marlonpya" target="_blank" rel="noopener">GitHub</a>
+        <a class="btn" href="https://www.linkedin.com/in/marlon-mauro-arteaga-morales-1303b9116/" target="_blank" rel="noopener">LinkedIn</a>
+      </div>
+    </div>
+
+    <div class="codigo" aria-label="Perfil declarado como bloque de configuración Kotlin">
+      <code>
+<span class="ln"><span class="c">// perfil.kts</span></span>
+<span class="ln"><span class="k">profile</span> {</span>
+<span class="ln">    role      = <span class="s">"Mobile Lead"</span></span>
+<span class="ln">    platforms = listOf(<span class="s">"Android"</span>, <span class="s">"iOS"</span>)</span>
+<span class="ln">    stack     = listOf(<span class="s">"Kotlin"</span>, <span class="s">"Swift"</span>, <span class="s">"Python"</span>)</span>
+<span class="ln">    focus     = <span class="s">"IA aplicada a producto"</span></span>
+<span class="ln">    based     = <span class="s">"Lima, PE"</span></span>
+<span class="ln">    remote    = <span class="k">true</span></span>
+<span class="ln">    <span class="k">status</span> { open = <span class="k">true</span> }<span class="caret"></span></span>
+<span class="ln">}</span>
+      </code>
+    </div>
+  </div>
+</section>
+
+<!-- ══ Perfil ══ -->
+<section class="contenedor bloque aparece" id="perfil">
+  <p class="rotulo">perfil</p>
+  <h2 class="titulo">Android e iOS, con el mismo criterio.</h2>
+
+  <p class="parrafo">
+    Lidero desarrollo móvil: arquitectura, revisión de código y el trabajo poco vistoso
+    de sostener apps que ya están en manos de gente. Clean Architecture y MVVM no son
+    adorno — son lo que mantiene una base de código editable a largo plazo.
+  </p>
+  <p class="parrafo">
+    También enseño Android. Preparar clases obliga a justificar cada decisión de
+    arquitectura, y eso mejora el código que escribo el resto de la semana.
+  </p>
+
+  <div class="stack">
+    <div class="item" data-p="android">
+      <h3>Android</h3>
+      <p>Kotlin, Clean Architecture, MVVM, Hilt, Room, Coroutines. Vistas XML y Compose.</p>
+    </div>
+    <div class="item" data-p="ios">
+      <h3>iOS</h3>
+      <p>Swift, SwiftUI, TCA, Redux, SwiftData. XCTest para unitarias e instrumentadas.</p>
+    </div>
+    <div class="item" data-p="neutro">
+      <h3>Backend &amp; datos</h3>
+      <p>Supabase, PostgreSQL, Edge Functions. Sincronización offline y fuente de verdad remota.</p>
+    </div>
+    <div class="item" data-p="neutro">
+      <h3>IA aplicada</h3>
+      <p>Python, Claude API, LangChain, LangGraph. RAG y agentes con herramientas.</p>
+    </div>
+    <div class="item" data-p="neutro">
+      <h3>Infraestructura</h3>
+      <p>AWS, Terraform, CI/CD. En camino a AWS Solutions Architect — Associate.</p>
+    </div>
+    <div class="item" data-p="neutro">
+      <h3>Telecom</h3>
+      <p>eSIM, EuiccManager, privilegios de operador, flujos de activación y portabilidad.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ══ Apps ══ -->
+<section class="contenedor bloque aparece" id="apps">
+  <p class="rotulo">apps publicadas</p>
+  <h2 class="titulo">Producto propio, de la primera línea a la tienda.</h2>
+  <p class="parrafo">Desarrollado y mantenido bajo Strawtechberry.</p>
+  <div class="fichas" id="fichas-apps"></div>
+</section>
+
+<!-- ══ Repos ══ -->
+<section class="contenedor bloque aparece" id="repos">
+  <p class="rotulo">repositorios</p>
+  <h2 class="titulo">Código público.</h2>
+  <p class="parrafo">Se leen de la API de GitHub al cargar la página, así que no se quedan desactualizados.</p>
+  <div class="repos" id="lista-repos"></div>
+</section>
+
+<!-- ══ Contacto ══ -->
+<section class="contenedor bloque aparece" id="contacto">
+  <p class="rotulo">contacto</p>
+  <h2 class="titulo">Disponible para trabajo remoto.</h2>
+  <p class="parrafo">Roles de ingeniería móvil e IA aplicada, desde Lima.</p>
+  <dl class="contacto" id="datos-contacto"></dl>
+</section>
+
+<footer class="contenedor pie">
+  Instrument Sans + IBM Plex Mono · Lima, Perú
+</footer>
+
+<script>
+/* ═══════════════════════════════════════════════════
+   CONFIGURACIÓN — edita solo este bloque
+   ═══════════════════════════════════════════════════ */
+
+const USUARIO_GITHUB = "marlonpya";
+
+// Tus seis repos fijados, en ese orden.
+// Vacía el arreglo si prefieres selección automática por relevancia.
+const REPOS_DESTACADOS = [
+  "Yape-Redux",
+  "Bancom_iOS",
+  "FoodApp",
+  "PokemonKotlin",
+  "Architect-Coders-Marlon",
+  "RealTrackerSwift"
+];
+
+// Descripción propia para repos que en GitHub no tienen `description`.
+const NOTAS_REPOS = {
+  "Architect-Coders-Marlon": "",       // ← escribe una línea
+  "RealTrackerSwift": ""               // ← escribe una línea
+};
+
+const CONTACTO = {
+  correo:   "tucorreo@ejemplo.com",    // ← COMPLETAR
+  linkedin: "https://www.linkedin.com/in/marlon-mauro-arteaga-morales-1303b9116/",
+  github:   "https://github.com/marlonpya",
+  cv:       "cv.pdf"                   // sube el PDF junto a este archivo
+};
+
+const APPS = [
+  {
+    nombre: "Yupana",
+    plataforma: "android",             // "android" | "ios"
+    resumen: "Reemplaza esta línea: qué resuelve y para quién.",  // ← COMPLETAR
+    pila: ["Kotlin", "Clean Architecture", "Hilt", "Room"],
+    enlace: ""                         // URL de la tienda; vacío oculta el botón
+  },
+  {
+    nombre: "StreamCook",
+    plataforma: "android",
+    resumen: "Reemplaza esta línea: qué resuelve y para quién.",  // ← COMPLETAR
+    pila: ["Kotlin", "MVVM", "Supabase"],
+    enlace: ""
+  }
+];
+
+/* ═══════════════════════════════════════════════════
+   De aquí para abajo no hace falta tocar nada
+   ═══════════════════════════════════════════════════ */
+
+const esc = (t) => String(t ?? "").replace(/[&<>"]/g, (c) =>
+  ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
+
+// ── Tema claro / oscuro ────────────────────────────
+const raiz = document.documentElement;
+const btnTema = document.getElementById("btn-tema");
+
+function leerTema() {
+  try { const g = localStorage.getItem("tema"); if (g) return g; } catch {}
+  return matchMedia("(prefers-color-scheme: dark)").matches ? "oscuro" : "claro";
+}
+function aplicarTema(t) {
+  raiz.dataset.tema = t;
+  btnTema.textContent = t === "oscuro" ? "claro" : "oscuro";
+  try { localStorage.setItem("tema", t); } catch {}
+}
+aplicarTema(leerTema());
+btnTema.addEventListener("click", () =>
+  aplicarTema(raiz.dataset.tema === "oscuro" ? "claro" : "oscuro"));
+
+// ── Apps ───────────────────────────────────────────
+function pintarApps() {
+  document.getElementById("fichas-apps").innerHTML = APPS.map((a) => `
+    <article class="app">
+      <div class="app-cab">
+        <span class="punto" style="background:var(--${a.plataforma === "ios" ? "swift" : "kotlin"})"></span>
+        <h3>${esc(a.nombre)}</h3>
+        <span class="app-org">Strawtechberry</span>
+      </div>
+      <p>${esc(a.resumen)}</p>
+      <ul class="tags">${a.pila.map((t) => `<li>${esc(t)}</li>`).join("")}</ul>
+      ${a.enlace ? `<a class="btn" href="${esc(a.enlace)}" target="_blank" rel="noopener">Ver la app</a>` : ""}
+    </article>`).join("");
+}
+
+// ── Contacto ───────────────────────────────────────
+function pintarContacto() {
+  document.getElementById("datos-contacto").innerHTML = `
+    <div class="fila"><dt>Correo</dt><dd><a href="mailto:${esc(CONTACTO.correo)}">${esc(CONTACTO.correo)}</a></dd></div>
+    <div class="fila"><dt>LinkedIn</dt><dd><a href="${esc(CONTACTO.linkedin)}" target="_blank" rel="noopener">Marlon Mauro Arteaga Morales</a></dd></div>
+    <div class="fila"><dt>GitHub</dt><dd><a href="${esc(CONTACTO.github)}" target="_blank" rel="noopener">@${esc(USUARIO_GITHUB)}</a></dd></div>
+    <div class="fila"><dt>CV</dt><dd><a href="${esc(CONTACTO.cv)}" download>Descargar PDF</a></dd></div>`;
+}
+
+// ── Repositorios ───────────────────────────────────
+const contRepos = document.getElementById("lista-repos");
+const estado = (html) => { contRepos.innerHTML = `<p class="estado">${html}</p>`; };
+const fecha = (iso) => new Date(iso).toLocaleDateString("es-PE", { month: "short", year: "numeric" });
+
+function pintarRepos(repos) {
+  contRepos.innerHTML = repos.map((r) => `
+    <a class="repo" href="${esc(r.html_url)}" target="_blank" rel="noopener">
+      <div>
+        <p class="repo-nom">${esc(r.name)}</p>
+        <p class="repo-desc">${esc(r.description || NOTAS_REPOS[r.name] || "Sin descripción todavía.")}</p>
+      </div>
+      <div class="repo-meta">
+        ${r.language ? `<span class="leng" data-l="${esc(r.language)}"><i></i>${esc(r.language)}</span><br>` : ""}
+        ${r.stargazers_count ? `★ ${r.stargazers_count} · ` : ""}${fecha(r.pushed_at)}
+      </div>
+    </a>`).join("");
+}
+
+async function cargarRepos() {
+  estado("Leyendo repositorios…");
+  try {
+    const r = await fetch(`https://api.github.com/users/${USUARIO_GITHUB}/repos?per_page=100&sort=updated`);
+    if (r.status === 404) { estado(`No existe el usuario <code>${esc(USUARIO_GITHUB)}</code> en GitHub.`); return; }
+    if (r.status === 403) { estado("GitHub limitó las consultas desde esta red por un rato. Vuelve a cargar en unos minutos."); return; }
+    if (!r.ok) throw new Error(r.status);
+
+    let repos = (await r.json()).filter((x) => !x.fork && !x.archived);
+
+    if (REPOS_DESTACADOS.length) {
+      repos = REPOS_DESTACADOS
+        .map((n) => repos.find((x) => x.name.toLowerCase() === n.toLowerCase()))
+        .filter(Boolean);
+    } else {
+      repos.sort((a, b) =>
+        b.stargazers_count - a.stargazers_count ||
+        new Date(b.pushed_at) - new Date(a.pushed_at));
+      repos = repos.slice(0, 6);
+    }
+
+    if (!repos.length) { estado("Todavía no hay repositorios públicos que mostrar."); return; }
+    pintarRepos(repos);
+  } catch {
+    estado("No se pudo contactar a GitHub. Revisa tu conexión y vuelve a cargar.");
+  }
+}
+
+// ── Aparición al hacer scroll ──────────────────────
+function activarAparicion() {
+  const bloques = document.querySelectorAll(".aparece");
+  if (!("IntersectionObserver" in window) ||
+      matchMedia("(prefers-reduced-motion: reduce)").matches) {
+    bloques.forEach((b) => b.classList.add("visible"));
+    return;
+  }
+  const obs = new IntersectionObserver((es) => {
+    es.forEach((e) => {
+      if (e.isIntersecting) { e.target.classList.add("visible"); obs.unobserve(e.target); }
+    });
+  }, { threshold: .1, rootMargin: "0px 0px -50px" });
+  bloques.forEach((b) => obs.observe(b));
+}
+
+pintarApps();
+pintarContacto();
+cargarRepos();
+activarAparicion();
+</script>
+</body>
+</html>
