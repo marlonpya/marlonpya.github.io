@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Marlon Arteaga — Mobile Lead · Android &amp; iOS</title>
-<meta name="description" content="Marlon Mauro Arteaga Morales. Mobile Lead Android e iOS, arquitectura limpia e IA aplicada a producto. Lima, Perú.">
+<meta name="description" content="Marlon Mauro Arteaga Morales. Mobile Lead Android e iOS con más de 10 años en banca, Kotlin Multiplatform e IA aplicada. Lima, Perú.">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -83,6 +83,7 @@ a{color:inherit;text-decoration:none}
   transition:color .18s ease;
 }
 .enlaces a:hover{color:var(--tinta)}
+.botones{display:flex;gap:8px}
 .tema{
   font-family:var(--mono);font-size:12.5px;
   background:none;border:1px solid var(--linea-alta);border-radius:4px;
@@ -99,6 +100,7 @@ a{color:inherit;text-decoration:none}
   letter-spacing:.02em;
 }
 .rotulo::before{content:"// ";color:var(--linea-alta)}
+.subrotulo{margin:calc(var(--u)*7) 0 0}
 .titulo{
   font-size:clamp(1.6rem,3.2vw,2.15rem);
   font-weight:600;letter-spacing:-.025em;line-height:1.2;
@@ -147,6 +149,22 @@ a{color:inherit;text-decoration:none}
 .btn--fuerte{background:var(--kotlin);border-color:var(--kotlin);color:#fff}
 .btn--fuerte:hover{opacity:.88}
 
+.cifras{
+  display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px 24px;
+  margin-top:calc(var(--u)*5);padding-top:calc(var(--u)*3);
+  border-top:1px solid var(--linea);
+}
+.cifra b{display:block;font-size:24px;font-weight:700;letter-spacing:-.03em;line-height:1.2}
+.cifra span{font-family:var(--mono);font-size:11.5px;color:var(--suave)}
+.clientes{font-family:var(--mono);font-size:12px;color:var(--suave);margin:calc(var(--u)*2.5) 0 0;line-height:1.9}
+.clientes b{color:var(--tinta);font-weight:500}
+
+/* ── Marca de plataforma ────────────────────────── */
+.punto{width:8px;height:8px;border-radius:2px;background:var(--suave);flex:none;display:inline-block}
+.punto[data-p="android"]{background:var(--kotlin)}
+.punto[data-p="ios"]{background:var(--swift)}
+.punto[data-p="multi"]{background:linear-gradient(135deg,var(--kotlin) 50%,var(--swift) 50%)}
+
 /* ── Stack técnico ──────────────────────────────── */
 .stack{
   display:grid;grid-template-columns:repeat(auto-fit,minmax(232px,1fr));
@@ -158,14 +176,52 @@ a{color:inherit;text-decoration:none}
 .item h3{
   font-family:var(--mono);font-size:11.5px;font-weight:600;
   letter-spacing:.06em;text-transform:uppercase;
-  margin:0 0 10px;
+  margin:0 0 10px;color:var(--suave);
 }
 .item[data-p="android"] h3{color:var(--kotlin)}
-.item[data-p="ios"] h3{color:var(--swift)}
-.item[data-p="neutro"] h3{color:var(--suave)}
+.item[data-p="ios"] h3{color:var(--swift);text-transform:none}   /* "iOS", no "IOS" */
+.item[data-p="multi"] h3{
+  background:linear-gradient(90deg,var(--kotlin),var(--swift));
+  -webkit-background-clip:text;background-clip:text;color:transparent;
+}
 .item p{margin:0;font-size:13.5px;line-height:1.55;color:var(--suave)}
+.item ul{list-style:none;margin:0;padding:0}
+.item li{font-size:13.5px;line-height:1.45;color:var(--tinta);padding:8px 0;border-top:1px dashed var(--linea)}
+.item li:first-child{border-top:none;padding-top:0}
+.item li small{display:block;font-family:var(--mono);font-size:11px;color:var(--suave);margin-top:2px}
 
-/* ── Apps publicadas ────────────────────────────── */
+/* ── Experiencia ────────────────────────────────── */
+.leyenda{
+  display:flex;flex-wrap:wrap;gap:8px 20px;
+  font-family:var(--mono);font-size:11.5px;color:var(--suave);
+  margin-top:calc(var(--u)*4);
+}
+.leyenda span{display:inline-flex;align-items:center;gap:7px}
+.linea{
+  list-style:none;margin:calc(var(--u)*2) 0 0;padding:0;
+  border:1px solid var(--linea);border-radius:6px;overflow:hidden;
+  background:var(--superficie);
+}
+.exp{
+  display:grid;grid-template-columns:172px 1fr;gap:24px;
+  padding:calc(var(--u)*3);
+  border-bottom:1px solid var(--linea);
+}
+.exp:last-child{border-bottom:none}
+.exp-fecha{font-family:var(--mono);font-size:12px;color:var(--suave);line-height:1.75}
+.exp-fecha b{display:block;color:var(--tinta);font-weight:500}
+.exp-cab{display:flex;align-items:center;flex-wrap:wrap;gap:8px 10px;margin-bottom:2px}
+.exp h3{font-size:17px;font-weight:600;margin:0;letter-spacing:-.015em}
+.insignia{
+  font-family:var(--mono);font-size:10.5px;font-weight:600;
+  letter-spacing:.06em;text-transform:uppercase;color:var(--kotlin);
+  border:1px solid color-mix(in srgb, var(--kotlin) 45%, transparent);
+  border-radius:3px;padding:1px 6px;
+}
+.exp-org{font-family:var(--mono);font-size:12.5px;color:var(--suave);margin:0 0 10px}
+.exp-desc{margin:0 0 14px;font-size:14px;color:var(--suave);line-height:1.6;max-width:68ch}
+
+/* ── Apps ───────────────────────────────────────── */
 .fichas{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:16px;margin-top:calc(var(--u)*4)}
 .app{
   background:var(--superficie);border:1px solid var(--linea);border-radius:6px;
@@ -173,7 +229,6 @@ a{color:inherit;text-decoration:none}
   display:flex;flex-direction:column;
 }
 .app-cab{display:flex;align-items:center;gap:10px;margin-bottom:12px}
-.punto{width:8px;height:8px;border-radius:2px;background:var(--kotlin);flex:none}
 .app h3{font-size:18px;font-weight:600;margin:0;letter-spacing:-.015em}
 .app-org{font-family:var(--mono);font-size:11px;color:var(--suave);margin-left:auto}
 .app p{margin:0 0 16px;font-size:14px;color:var(--suave);line-height:1.55}
@@ -182,12 +237,13 @@ a{color:inherit;text-decoration:none}
   font-family:var(--mono);font-size:11px;color:var(--suave);
   border:1px solid var(--linea);border-radius:3px;padding:3px 7px;
 }
+.exp .tags{margin:0}
 .app .btn{margin-top:auto;align-self:flex-start}
 
 /* ── Catálogo de repositorios ───────────────────── */
 .repos{
   border:1px solid var(--linea);border-radius:6px;overflow:hidden;
-  background:var(--superficie);margin-top:calc(var(--u)*4);
+  background:var(--superficie);margin-top:calc(var(--u)*3);
 }
 .repo{
   display:grid;grid-template-columns:1fr auto;gap:20px;align-items:start;
@@ -210,14 +266,14 @@ a{color:inherit;text-decoration:none}
 .leng[data-l="Swift"] i,.leng[data-l="Objective-C"] i{background:var(--swift)}
 .estado{
   font-family:var(--mono);font-size:13px;color:var(--suave);
-  padding:calc(var(--u)*3.5);line-height:1.7;
+  padding:calc(var(--u)*3.5);line-height:1.7;margin:0;
 }
 .estado code{background:var(--bg);border:1px solid var(--linea);border-radius:3px;padding:1px 5px}
 
-/* ── Contacto ───────────────────────────────────── */
-.contacto{
+/* ── Formación ──────────────────────────────────── */
+.tabla{
   border:1px solid var(--linea);border-radius:6px;background:var(--superficie);
-  margin-top:calc(var(--u)*4);
+  margin:calc(var(--u)*3) 0 0;
 }
 .fila{
   display:grid;grid-template-columns:132px 1fr;gap:20px;
@@ -228,8 +284,15 @@ a{color:inherit;text-decoration:none}
 .fila:last-child{border-bottom:none}
 .fila dt{font-family:var(--mono);font-size:11.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--suave)}
 .fila dd{margin:0;font-size:15px}
+.fila dd small{display:block;font-family:var(--mono);font-size:12px;color:var(--suave);margin-top:2px}
 .fila dd a{border-bottom:1px solid transparent;transition:border-color .18s ease,color .18s ease}
 .fila dd a:hover{color:var(--kotlin);border-bottom-color:var(--kotlin)}
+.formacion .stack{margin-top:calc(var(--u)*3)}
+.idiomas{font-family:var(--mono);font-size:12.5px;color:var(--suave);margin:calc(var(--u)*3) 0 0}
+.idiomas b{color:var(--tinta);font-weight:500}
+
+/* ── Contacto ───────────────────────────────────── */
+.contacto{margin-top:calc(var(--u)*4)}
 
 .pie{
   border-top:1px solid var(--linea);
@@ -246,11 +309,16 @@ a{color:inherit;text-decoration:none}
   .rejilla-portada{grid-template-columns:1fr;gap:36px}
   .contenedor,.barra-fila{padding:0 20px}
 }
-@media (max-width:620px){
+@media (max-width:760px){
   .enlaces{display:none}
+  .botones{margin-left:auto}
+}
+@media (max-width:620px){
   .repo{grid-template-columns:1fr;gap:10px}
   .repo-meta{text-align:left}
   .fila{grid-template-columns:1fr;gap:4px}
+  .exp{grid-template-columns:1fr;gap:10px;padding:calc(var(--u)*2.5)}
+  .exp-fecha b{display:inline;margin-right:8px}
   .codigo{font-size:12.5px;padding:20px}
 }
 @media (prefers-reduced-motion:reduce){
@@ -267,12 +335,16 @@ a{color:inherit;text-decoration:none}
   <div class="barra-fila">
     <a class="marca" href="#inicio">marlonpya</a>
     <nav class="enlaces">
-      <a href="#perfil">perfil</a>
-      <a href="#apps">apps</a>
-      <a href="#repos">repos</a>
-      <a href="#contacto">contacto</a>
+      <a href="#perfil" data-i18n="nav.perfil">perfil</a>
+      <a href="#experiencia" data-i18n="nav.exp">experiencia</a>
+      <a href="#proyectos" data-i18n="nav.proy">proyectos</a>
+      <a href="#formacion" data-i18n="nav.form">formación</a>
+      <a href="#contacto" data-i18n="nav.contacto">contacto</a>
     </nav>
-    <button class="tema" id="btn-tema" aria-label="Cambiar tema">tema</button>
+    <div class="botones">
+      <button class="tema" id="btn-idioma" aria-label="Switch to English">EN</button>
+      <button class="tema" id="btn-tema" aria-label="Cambiar tema">tema</button>
+    </div>
   </div>
 </header>
 
@@ -281,32 +353,45 @@ a{color:inherit;text-decoration:none}
   <div class="rejilla-portada">
     <div>
       <h1 class="nombre">Marlon Arteaga<br>Morales</h1>
-      <p class="subtitulo">Mobile Lead · <span class="and">Android</span> &amp; <span class="ios">iOS</span> · Lima, Perú</p>
-      <p class="parrafo">
-        Diseño y sostengo aplicaciones móviles de producción en las dos plataformas.
-        Arquitectura limpia, pruebas y decisiones que aguantan dos años de mantenimiento.
+      <p class="subtitulo" data-i18n="hero.sub">Mobile Lead · <span class="and">Android</span> &amp; <span class="ios">iOS</span> · KMP · Lima, Perú</p>
+      <p class="parrafo" data-i18n="hero.p1">
+        Más de 10 años diseñando y sosteniendo apps móviles de producción en las dos plataformas,
+        la mayoría para banca en Perú, México y Chile. Arquitectura limpia, pruebas y decisiones
+        que aguantan años de mantenimiento.
       </p>
-      <p class="parrafo">
+      <p class="parrafo" data-i18n="hero.p2">
         Ahora llevo ese mismo criterio a <strong>IA aplicada</strong>: agentes, RAG
         y orquestación desplegados como infraestructura, no como demo.
       </p>
       <div class="acciones">
-        <a class="btn btn--fuerte" href="#contacto">Contactar</a>
+        <a class="btn btn--fuerte" href="#contacto" data-i18n="btn.contactar">Contactar</a>
+        <a class="btn" href="cv.pdf" download data-i18n="btn.cv">CV (PDF)</a>
         <a class="btn" href="https://github.com/marlonpya" target="_blank" rel="noopener">GitHub</a>
         <a class="btn" href="https://www.linkedin.com/in/marlon-mauro-arteaga-morales-1303b9116/" target="_blank" rel="noopener">LinkedIn</a>
       </div>
+      <div class="cifras">
+        <div class="cifra"><b>10+</b><span data-i18n="cifra.anios">años en desarrollo móvil</span></div>
+        <div class="cifra"><b>6+</b><span data-i18n="cifra.bancos">bancos en Latinoamérica</span></div>
+        <div class="cifra"><b>3</b><span data-i18n="cifra.paises">países · PE · MX · CL</span></div>
+      </div>
+      <p class="clientes">
+        <span data-i18n="clientes">Proyectos para</span>
+        <b>Interbank</b> · <b>BCP</b> · <b>Citibanamex</b> · <b>BCI</b> ·
+        <b>Banco de la Nación</b> · <b>Caja Piura</b> · <b>Culqi</b>
+      </p>
     </div>
 
-    <div class="codigo" aria-label="Perfil declarado como bloque de configuración Kotlin">
+    <div class="codigo" data-i18n-aria="code.aria" aria-label="Perfil declarado como bloque de configuración Kotlin">
       <code>
 <span class="ln"><span class="c">// perfil.kts</span></span>
 <span class="ln"><span class="k">profile</span> {</span>
-<span class="ln">    role      = <span class="s">"Mobile Lead"</span></span>
-<span class="ln">    platforms = listOf(<span class="s">"Android"</span>, <span class="s">"iOS"</span>)</span>
-<span class="ln">    stack     = listOf(<span class="s">"Kotlin"</span>, <span class="s">"Swift"</span>, <span class="s">"Python"</span>)</span>
-<span class="ln">    focus     = <span class="s">"IA aplicada a producto"</span></span>
-<span class="ln">    based     = <span class="s">"Lima, PE"</span></span>
-<span class="ln">    remote    = <span class="k">true</span></span>
+<span class="ln">    role       = <span class="s">"Mobile Lead"</span></span>
+<span class="ln">    platforms  = listOf(<span class="s">"Android"</span>, <span class="s">"iOS"</span>)</span>
+<span class="ln">    stack      = listOf(<span class="s">"Kotlin"</span>, <span class="s">"Swift"</span>, <span class="s">"KMP"</span>)</span>
+<span class="ln">    experience = 10.years</span>
+<span class="ln">    focus      = <span class="s" data-i18n="code.focus">"IA aplicada a producto"</span></span>
+<span class="ln">    based      = <span class="s">"Lima, PE"</span></span>
+<span class="ln">    remote     = <span class="k">true</span></span>
 <span class="ln">    <span class="k">status</span> { open = <span class="k">true</span> }<span class="caret"></span></span>
 <span class="ln">}</span>
       </code>
@@ -316,122 +401,388 @@ a{color:inherit;text-decoration:none}
 
 <!-- ══ Perfil ══ -->
 <section class="contenedor bloque aparece" id="perfil">
-  <p class="rotulo">perfil</p>
-  <h2 class="titulo">Android e iOS, con el mismo criterio.</h2>
-
-  <p class="parrafo">
+  <p class="rotulo" data-i18n="perfil.rot">perfil</p>
+  <h2 class="titulo" data-i18n="perfil.tit">Android e iOS, con el mismo criterio.</h2>
+  <p class="parrafo" data-i18n="perfil.p1">
     Lidero desarrollo móvil: arquitectura, revisión de código y el trabajo poco vistoso
     de sostener apps que ya están en manos de gente. Clean Architecture y MVVM no son
     adorno — son lo que mantiene una base de código editable a largo plazo.
   </p>
-  <p class="parrafo">
+  <p class="parrafo" data-i18n="perfil.p2">
     También enseño Android. Preparar clases obliga a justificar cada decisión de
     arquitectura, y eso mejora el código que escribo el resto de la semana.
   </p>
+  <div class="stack" id="stack"></div>
+</section>
 
-  <div class="stack">
-    <div class="item" data-p="android">
-      <h3>Android</h3>
-      <p>Kotlin, Clean Architecture, MVVM, Hilt, Room, Coroutines. Vistas XML y Compose.</p>
-    </div>
-    <div class="item" data-p="ios">
-      <h3>iOS</h3>
-      <p>Swift, SwiftUI, TCA, Redux, SwiftData. XCTest para unitarias e instrumentadas.</p>
-    </div>
-    <div class="item" data-p="neutro">
-      <h3>Backend &amp; datos</h3>
-      <p>Supabase, PostgreSQL, Edge Functions. Sincronización offline y fuente de verdad remota.</p>
-    </div>
-    <div class="item" data-p="neutro">
-      <h3>IA aplicada</h3>
-      <p>Python, Claude API, LangChain, LangGraph. RAG y agentes con herramientas.</p>
-    </div>
-    <div class="item" data-p="neutro">
-      <h3>Infraestructura</h3>
-      <p>AWS, Terraform, CI/CD. En camino a AWS Solutions Architect — Associate.</p>
-    </div>
-    <div class="item" data-p="neutro">
-      <h3>Telecom</h3>
-      <p>eSIM, EuiccManager, privilegios de operador, flujos de activación y portabilidad.</p>
-    </div>
+<!-- ══ Experiencia ══ -->
+<section class="contenedor bloque aparece" id="experiencia">
+  <p class="rotulo" data-i18n="exp.rot">experiencia</p>
+  <h2 class="titulo" data-i18n="exp.tit">Diez años de apps en producción.</h2>
+  <p class="parrafo" data-i18n="exp.p">La mayor parte en banca y pagos, donde un error no es solo un bug: es el dinero de alguien.</p>
+  <div class="leyenda">
+    <span><i class="punto" data-p="android"></i>Android</span>
+    <span><i class="punto" data-p="ios"></i>iOS</span>
+    <span><i class="punto" data-p="multi"></i>Android + iOS</span>
   </div>
+  <ol class="linea" id="lista-exp"></ol>
 </section>
 
-<!-- ══ Apps ══ -->
-<section class="contenedor bloque aparece" id="apps">
-  <p class="rotulo">apps publicadas</p>
-  <h2 class="titulo">Producto propio, de la primera línea a la tienda.</h2>
-  <p class="parrafo">Desarrollado y mantenido bajo Strawtechberry.</p>
+<!-- ══ Proyectos ══ -->
+<section class="contenedor bloque aparece" id="proyectos">
+  <p class="rotulo" data-i18n="proy.rot">proyectos</p>
+  <h2 class="titulo" data-i18n="proy.tit">Producto propio y código abierto.</h2>
+  <p class="parrafo" data-i18n="proy.p">Apps que diseño y construyo de punta a punta.</p>
   <div class="fichas" id="fichas-apps"></div>
+
+  <p class="rotulo subrotulo" data-i18n="repos.rot">código público</p>
+  <p class="parrafo" data-i18n="repos.p">Se leen de la API de GitHub al cargar la página, así que no se quedan desactualizados.</p>
+  <div class="repos" id="lista-repos"></div>
 </section>
 
-<!-- ══ Repos ══ -->
-<section class="contenedor bloque aparece" id="repos">
-  <p class="rotulo">repositorios</p>
-  <h2 class="titulo">Código público.</h2>
-  <p class="parrafo">Se leen de la API de GitHub al cargar la página, así que no se quedan desactualizados.</p>
-  <div class="repos" id="lista-repos"></div>
+<!-- ══ Formación ══ -->
+<section class="contenedor bloque aparece formacion" id="formacion">
+  <p class="rotulo" data-i18n="form.rot">formación</p>
+  <h2 class="titulo" data-i18n="form.tit">Formación y certificaciones.</h2>
+
+  <p class="rotulo subrotulo" data-i18n="form.estudios">estudios</p>
+  <dl class="tabla" id="lista-estudios"></dl>
+
+  <p class="rotulo subrotulo" data-i18n="form.certs">certificaciones</p>
+  <div class="stack" id="lista-certs"></div>
+
+  <p class="idiomas" data-i18n="form.idiomas"><b>Español</b> nativo · <b>Inglés</b> B2</p>
 </section>
 
 <!-- ══ Contacto ══ -->
 <section class="contenedor bloque aparece" id="contacto">
-  <p class="rotulo">contacto</p>
-  <h2 class="titulo">Disponible para trabajo remoto.</h2>
-  <p class="parrafo">Roles de ingeniería móvil e IA aplicada, desde Lima.</p>
-  <dl class="contacto" id="datos-contacto"></dl>
+  <p class="rotulo" data-i18n="contacto.rot">contacto</p>
+  <h2 class="titulo" data-i18n="contacto.tit">Disponible para trabajo remoto.</h2>
+  <p class="parrafo" data-i18n="contacto.p">Roles de liderazgo móvil, Android, iOS y KMP, desde Lima.</p>
+  <dl class="tabla contacto" id="datos-contacto"></dl>
 </section>
 
-<footer class="contenedor pie">
+<footer class="contenedor pie" data-i18n="pie">
   Instrument Sans + IBM Plex Mono · Lima, Perú
 </footer>
 
 <script>
 /* ═══════════════════════════════════════════════════
    CONFIGURACIÓN — edita solo este bloque
+   Los textos con dos idiomas van como { es: "…", en: "…" }.
    ═══════════════════════════════════════════════════ */
 
 const USUARIO_GITHUB = "marlonpya";
 
-// Tus seis repos fijados, en ese orden.
+// Repos destacados, en ese orden.
 // Vacía el arreglo si prefieres selección automática por relevancia.
 const REPOS_DESTACADOS = [
+  "CMPApp",
+  "BlogApp",
+  "AuthFirebaseApp",
   "Yape-Redux",
   "Bancom_iOS",
-  "FoodApp",
-  "PokemonKotlin",
-  "Architect-Coders-Marlon",
-  "RealTrackerSwift"
+  "FoodApp"
 ];
 
-// Descripción propia para repos que en GitHub no tienen `description`.
+// Descripción propia por repo (tiene prioridad sobre la de GitHub).
 const NOTAS_REPOS = {
-  "Architect-Coders-Marlon": "",       // ← escribe una línea
-  "RealTrackerSwift": ""               // ← escribe una línea
+  "CMPApp": {
+    es: "Demo de Kotlin Multiplatform + Compose Multiplatform: login con validación, lista y grilla, navegación y detalle con UI compartida Android/iOS.",
+    en: "Kotlin Multiplatform + Compose Multiplatform demo: validated login, list and grid, navigation and detail with shared Android/iOS UI."
+  },
+  "BlogApp": {
+    es: "Bloc de notas Android como referencia de Clean Architecture + MVI implementado a mano con Jetpack Compose y Material 3.",
+    en: "Android notes app as a reference for hand-rolled Clean Architecture + MVI with Jetpack Compose and Material 3."
+  },
+  "AuthFirebaseApp": {
+    es: "Autenticación Android con Firebase Auth y Credential Manager.",
+    en: "Android authentication with Firebase Auth and Credential Manager."
+  },
+  "Yape-Redux": {
+    es: "Patrón Redux en SwiftUI con pruebas unitarias e instrumentadas (XCTest).",
+    en: "Redux pattern in SwiftUI with unit and UI tests (XCTest)."
+  },
+  "Bancom_iOS": {
+    es: "App SwiftUI con MVVM y pruebas unitarias e instrumentadas (XCTest).",
+    en: "SwiftUI app with MVVM and unit and UI tests (XCTest)."
+  },
+  "FoodApp": {
+    es: "Plantilla base para iniciar proyectos Android con Clean Architecture.",
+    en: "Starter template for Android projects with Clean Architecture."
+  }
 };
 
 const CONTACTO = {
   correo:   "marlon.arteaga.m@hotmail.com",
   linkedin: "https://www.linkedin.com/in/marlon-mauro-arteaga-morales-1303b9116/",
   github:   "https://github.com/marlonpya",
-  cv:       "cv.pdf"                   // sube el PDF junto a este archivo
+  cv:       "cv.pdf"
 };
 
+// plataforma / p: "android" | "ios" | "multi" | "neutro"
+const STACK = [
+  { p: "android", t: "Android",
+    d: { es: "Kotlin, Jetpack Compose, Clean Architecture, MVVM/MVI, Hilt, Koin, Room, Coroutines y Flow.",
+         en: "Kotlin, Jetpack Compose, Clean Architecture, MVVM/MVI, Hilt, Koin, Room, Coroutines and Flow." } },
+  { p: "ios", t: "iOS",
+    d: { es: "Swift, SwiftUI, UIKit, VIPER/VIP, TCA, Redux, Combine, SwiftData y CoreData. XCTest.",
+         en: "Swift, SwiftUI, UIKit, VIPER/VIP, TCA, Redux, Combine, SwiftData and CoreData. XCTest." } },
+  { p: "multi", t: { es: "Multiplataforma", en: "Cross-platform" },
+    d: { es: "Kotlin Multiplatform y Compose Multiplatform: lógica y UI compartidas, Ktor, Koin, Room y DataStore.",
+         en: "Kotlin Multiplatform and Compose Multiplatform: shared logic and UI, Ktor, Koin, Room and DataStore." } },
+  { p: "neutro", t: { es: "Web y backend", en: "Web & backend" },
+    d: { es: "React, TypeScript, Astro y Vue. Supabase, Firebase, PostgreSQL y sincronización offline.",
+         en: "React, TypeScript, Astro and Vue. Supabase, Firebase, PostgreSQL and offline sync." } },
+  { p: "neutro", t: { es: "Seguridad y calidad", en: "Security & quality" },
+    d: { es: "OWASP Mobile Top 10, Keychain, SSL/TLS, pruebas unitarias y de UI, CI/CD con Fastlane y GitLab CI.",
+         en: "OWASP Mobile Top 10, Keychain, SSL/TLS, unit and UI tests, CI/CD with Fastlane and GitLab CI." } },
+  { p: "neutro", t: { es: "IA aplicada", en: "Applied AI" },
+    d: { es: "Python, Claude API, LangChain, LangGraph. RAG y agentes con herramientas. Claude Code en el día a día.",
+         en: "Python, Claude API, LangChain, LangGraph. RAG and tool-using agents. Claude Code in daily work." } },
+  { p: "neutro", t: { es: "Infraestructura", en: "Infrastructure" },
+    d: { es: "AWS, Terraform, CI/CD. En camino a AWS Solutions Architect — Associate.",
+         en: "AWS, Terraform, CI/CD. Working toward AWS Solutions Architect — Associate." } },
+  { p: "neutro", t: "Telecom",
+    d: { es: "eSIM, EuiccManager, privilegios de operador, flujos de activación y portabilidad.",
+         en: "eSIM, EuiccManager, carrier privileges, activation and number-porting flows." } }
+];
+
+// ini / fin en formato "AAAA-MM"; fin: null = actualidad.
+const EXPERIENCIA = [
+  { ini: "2026-03", fin: null, p: "android", lead: true,
+    rol: { es: "Lead Mobile Android", en: "Android Mobile Lead" },
+    org: { es: "Indra · cliente Interbank", en: "Indra · client: Interbank" },
+    lugar: { es: "Remoto", en: "Remote" },
+    desc: { es: "Liderazgo técnico del equipo mobile en un proyecto bancario confidencial: definición de arquitectura, mentoría, revisión de código y estándares de calidad y seguridad.",
+            en: "Technical lead of the mobile team on a confidential banking project: architecture, mentoring, code review, and quality and security standards." },
+    pila: ["Kotlin", "Jetpack Compose", "MVI", "Clean Architecture", "Coroutines / Flow", "Room"] },
+  { ini: "2026-01", fin: "2026-03", p: "multi",
+    rol: { es: "Dev Mobile + Fullstack", en: "Mobile + Fullstack Developer" },
+    org: { es: "Consultoría · plataforma educativa", en: "Consulting · education platform" },
+    lugar: { es: "Remoto", en: "Remote" },
+    desc: { es: "Plataforma móvil y web para la gestión académica y la comunicación entre colegios, docentes, alumnos y apoderados. UI compartida Android/iOS con Compose Multiplatform y panel web en React.",
+            en: "Mobile and web platform for academic management and communication between schools, teachers, students and parents. Shared Android/iOS UI with Compose Multiplatform and a React admin panel." },
+    pila: ["KMP", "Compose Multiplatform", "Koin", "Ktor", "React", "TypeScript"] },
+  { ini: "2025-09", fin: "2025-11", p: "multi",
+    rol: { es: "Dev Android, iOS + Fullstack", en: "Android, iOS + Fullstack Developer" },
+    org: { es: "Caja de los Andes · Chile", en: "Caja de los Andes · Chile" },
+    lugar: { es: "Remoto", en: "Remote" },
+    desc: { es: "Plataforma interna móvil y web para la trazabilidad y validación de documentación, con sincronización segura (Keychain, SSL/TLS) e integración del Design System vía Apigee.",
+            en: "Internal mobile and web platform for document traceability and validation, with secure sync (Keychain, SSL/TLS) and Design System integration through Apigee." },
+    pila: ["Kotlin", "Jetpack Compose", "Swift", "SwiftUI", "SwiftData", "React"] },
+  { ini: "2025-07", fin: "2025-08", p: "multi",
+    rol: { es: "Developer Mobile Android e iOS", en: "Android & iOS Developer" },
+    org: { es: "Microsol · Consultoría", en: "Microsol · Consulting" },
+    lugar: { es: "Lima", en: "Lima" },
+    desc: { es: "App KMP para recolectar encuestas en zonas alejadas del Perú: funciona sin conexión y sincroniza en diferido. Navegación con patrón Coordinator.",
+            en: "KMP app for collecting surveys in remote areas of Peru: works offline with deferred sync. Coordinator-based navigation." },
+    pila: ["KMP", "Compose Multiplatform", "Ktor", "Room", "CameraX"] },
+  { ini: "2024-05", fin: "2025-06", p: "multi",
+    rol: { es: "Developer Mobile", en: "Mobile Developer" },
+    org: { es: "Neoris · cliente BCI (Chile)", en: "Neoris · client: BCI (Chile)" },
+    lugar: { es: "Remoto", en: "Remote" },
+    desc: { es: "BCI Personas y Empresas: banca móvil para transferencias, pago de servicios y BCI Pass como segundo factor. Resolución de vulnerabilidades y pruebas en flujos críticos.",
+            en: "BCI Personas & Empresas: mobile banking for transfers, bill payments and BCI Pass as a second factor. Vulnerability remediation and tests on critical flows." },
+    pila: ["Kotlin", "Jetpack Compose", "MVVM", "Swift", "UIKit", "VIPER"] },
+  { ini: "2023-04", fin: "2025-01", p: "multi",
+    rol: { es: "Developer Mobile", en: "Mobile Developer" },
+    org: { es: "CSTI · cliente Culqi", en: "CSTI · client: Culqi" },
+    lugar: { es: "Remoto", en: "Remote" },
+    desc: { es: "CulqiFull: pago rápido integrado con POS para comercios (ventas, cobros, anulaciones y pago de servicios), más Culqi Panel, una PWA de operaciones de venta.",
+            en: "CulqiFull: POS-integrated fast payments for merchants (sales, charges, voids and bill payments), plus Culqi Panel, a PWA for sales operations." },
+    pila: ["Jetpack Compose", "MVVM", "SwiftUI", "VIP", "Combine", "Astro", "Vue"] },
+  { ini: "2021-11", fin: "2023-02", p: "multi", lead: true,
+    rol: { es: "Lead Mobile", en: "Mobile Lead" },
+    org: { es: "Citibanamex · México", en: "Citibanamex · Mexico" },
+    lugar: { es: "Remoto", en: "Remote" },
+    desc: { es: "OPM Transfer (Banco Nacional de México): transferencias por QR, pago de servicios y recargas. Liderazgo técnico del equipo: análisis, diseño, UI, pruebas y resolución de vulnerabilidades.",
+            en: "OPM Transfer (Banco Nacional de México): QR transfers, bill payments and top-ups. Technical lead of the team: analysis, design, UI, testing and vulnerability remediation." },
+    pila: ["Kotlin", "Jetpack Compose", "Swift", "SwiftUI", "VIP", "Fastlane", "GitLab CI"] },
+  { ini: "2019-10", fin: "2021-10", p: "android",
+    rol: { es: "Developer Mobile", en: "Mobile Developer" },
+    org: { es: "Everis NTT Data · BCP, Interbank, Alicorp", en: "Everis NTT Data · BCP, Interbank, Alicorp" },
+    lugar: { es: "Lima", en: "Lima" },
+    desc: { es: "Banca Móvil de BCP e Interbank: optimización y nuevas funcionalidades, incluido el módulo de compatibilidad Huawei (HMS, Map Kit). Proof of Delivery para Alicorp con modo offline.",
+            en: "BCP and Interbank mobile banking: optimization and new features, including the Huawei compatibility module (HMS, Map Kit). Offline-first Proof of Delivery app for Alicorp." },
+    pila: ["Kotlin", "MVVM", "Coroutines", "Room", "WorkManager", "HMS"] },
+  { ini: "2019-06", fin: "2019-09", p: "multi", lead: true,
+    rol: { es: "Lead Mobile Android e iOS", en: "Android & iOS Mobile Lead" },
+    org: { es: "Encora · Caja Piura", en: "Encora · Caja Piura" },
+    lugar: { es: "Lima", en: "Lima" },
+    desc: { es: "Banca Móvil Caja Piura: lideré análisis, diseño y arquitectura, ceremonias Scrum y despliegues a Google Play y App Store.",
+            en: "Caja Piura mobile banking: led analysis, design and architecture, Scrum ceremonies, and releases to Google Play and the App Store." },
+    pila: ["Kotlin", "MVVM", "Swift", "VIPER", "UIKit", "TestFlight"] },
+  { ini: "2016-05", fin: "2019-06", p: "multi",
+    rol: { es: "Developer Mobile", en: "Mobile Developer" },
+    org: { es: "Everis NTT Data · GMD · UC Web", en: "Everis NTT Data · GMD · UC Web" },
+    lugar: { es: "Lima", en: "Lima" },
+    desc: { es: "Claro Ventas y Mi Entel (Android); Banca Móvil del Banco de la Nación (Android e iOS); Liaison (iOS) y Seguridad Chulucanas (Android).",
+            en: "Claro Ventas and Mi Entel (Android); Banco de la Nación mobile banking (Android & iOS); Liaison (iOS) and Seguridad Chulucanas (Android)." },
+    pila: ["Kotlin", "MVVM", "Retrofit", "Room", "Swift", "MVC", "UIKit", "CoreData"] }
+];
+
+// tipo: "codigo" (repo) | "tienda" (Play Store / App Store); enlace vacío oculta el botón.
 const APPS = [
   {
     nombre: "Yupana",
-    plataforma: "android",             // "android" | "ios"
-    resumen: "App multiplataforma (Android e iOS) para gestionar cuentas de streaming: control de suscripciones, perfiles y accesos compartidos.",
-    pila: ["Kotlin", "Clean Architecture", "Hilt", "Room"],
-    enlace: ""                         // URL de la tienda; vacío oculta el botón
+    plataforma: "multi",
+    org: "Strawtechberry",
+    resumen: { es: "App para revendedores de cuentas de streaming: organiza cuentas, perfiles y clientes, con recordatorios de vencimiento de cobro.",
+               en: "App for streaming-account resellers: organizes accounts, profiles and clients, with payment-due reminders." },
+    pila: ["Kotlin Multiplatform", "Android", "iOS", "Supabase", "Firebase"],
+    enlace: "https://github.com/marlonpya/YupanaApp",
+    tipo: "codigo"
   },
   {
     nombre: "CanchaApp",
     plataforma: "android",
-    resumen: "App Android para organizar grupos recurrentes de fútbol: creación de partidos, rosters de jugadores y control de asistencia.",
+    org: { es: "Proyecto personal", en: "Personal project" },
+    resumen: { es: "App Android para organizar grupos recurrentes de fútbol: partidos, rosters de jugadores y control de asistencia.",
+               en: "Android app to run recurring football groups: matches, player rosters and attendance tracking." },
     pila: ["Kotlin", "Clean Architecture", "Jetpack Compose", "RxJava3", "Room", "Supabase"],
-    enlace: "https://github.com/marlonpya/CanchaApp"
+    enlace: "https://github.com/marlonpya/CanchaApp",
+    tipo: "codigo"
   }
 ];
+
+const ESTUDIOS = [
+  { periodo: "2013 — 2016",
+    titulo: { es: "Computación e Informática (titulado)", en: "Computing & IT (professional degree)" },
+    inst: "CIBERTEC · Lima" },
+  { periodo: "2016",
+    titulo: { es: "Diplomado en Innovación e Integración Tecnológica", en: "Diploma in Technology Innovation & Integration" },
+    inst: "CIBERTEC" },
+  { periodo: "2015",
+    titulo: { es: "Curso de Programación de Apps Móviles", en: "Mobile App Programming course" },
+    inst: "Universidad Complutense de Madrid" }
+];
+
+// Cada certificado: [nombre, emisor]. Emisor vacío no se muestra.
+const CERTIFICADOS = [
+  { p: "android", t: "Android", items: [
+    [{ es: "Kotlin para desarrolladores Android", en: "Kotlin for Android Developers" }, "JetBrains"],
+    ["Compose Expert", ""],
+    [{ es: "Patrones de Diseño en Android", en: "Design Patterns in Android" }, ""],
+    ["Get Started with Android App Development", "Coursera"],
+    [{ es: "Aplicaciones Móviles Android", en: "Android Mobile Applications" }, ""]
+  ]},
+  { p: "ios", t: "iOS", items: [
+    [{ es: "SwiftUI: porteo y ciclo de vida de aplicaciones", en: "SwiftUI: app porting and lifecycle" }, ""],
+    [{ es: "iOS 10 y Swift", en: "iOS 10 & Swift" }, ""]
+  ]},
+  { p: "neutro", t: { es: "Arquitectura y seguridad", en: "Architecture & security" }, items: [
+    [{ es: "OWASP Mobile Top 10 — riesgos de apps móviles", en: "OWASP Mobile Top 10 — mobile app risks" }, ""],
+    [{ es: "Diseño de Software para Apps Móviles", en: "Software Design for Mobile Apps" }, ""],
+    ["Introduction to Mobile App Development", "Coursera"]
+  ]},
+  { p: "neutro", t: { es: "IA aplicada", en: "Applied AI" }, items: [
+    [{ es: "Curso completo de Claude Code", en: "Complete Claude Code course" }, ""],
+    ["Claude 101", "Anthropic Academy"]
+  ]}
+];
+
+/* ═══════════════════════════════════════════════════
+   Textos de la interfaz
+   ═══════════════════════════════════════════════════ */
+
+const TEXTOS = {
+  es: {
+    "doc.titulo": "Marlon Arteaga — Mobile Lead · Android & iOS",
+    "doc.desc": "Marlon Mauro Arteaga Morales. Mobile Lead Android e iOS con más de 10 años en banca, Kotlin Multiplatform e IA aplicada. Lima, Perú.",
+    "nav.perfil": "perfil", "nav.exp": "experiencia", "nav.proy": "proyectos",
+    "nav.form": "formación", "nav.contacto": "contacto",
+    "hero.sub": 'Mobile Lead · <span class="and">Android</span> &amp; <span class="ios">iOS</span> · KMP · Lima, Perú',
+    "hero.p1": "Más de 10 años diseñando y sosteniendo apps móviles de producción en las dos plataformas, la mayoría para banca en Perú, México y Chile. Arquitectura limpia, pruebas y decisiones que aguantan años de mantenimiento.",
+    "hero.p2": "Ahora llevo ese mismo criterio a <strong>IA aplicada</strong>: agentes, RAG y orquestación desplegados como infraestructura, no como demo.",
+    "btn.contactar": "Contactar", "btn.cv": "CV (PDF)",
+    "cifra.anios": "años en desarrollo móvil", "cifra.bancos": "bancos en Latinoamérica",
+    "cifra.paises": "países · PE · MX · CL",
+    "clientes": "Proyectos para",
+    "code.focus": '"IA aplicada a producto"',
+    "code.aria": "Perfil declarado como bloque de configuración Kotlin",
+    "perfil.rot": "perfil",
+    "perfil.tit": "Android e iOS, con el mismo criterio.",
+    "perfil.p1": "Lidero desarrollo móvil: arquitectura, revisión de código y el trabajo poco vistoso de sostener apps que ya están en manos de gente. Clean Architecture y MVVM no son adorno — son lo que mantiene una base de código editable a largo plazo.",
+    "perfil.p2": "También enseño Android. Preparar clases obliga a justificar cada decisión de arquitectura, y eso mejora el código que escribo el resto de la semana.",
+    "exp.rot": "experiencia",
+    "exp.tit": "Diez años de apps en producción.",
+    "exp.p": "La mayor parte en banca y pagos, donde un error no es solo un bug: es el dinero de alguien.",
+    "proy.rot": "proyectos",
+    "proy.tit": "Producto propio y código abierto.",
+    "proy.p": "Apps que diseño y construyo de punta a punta.",
+    "repos.rot": "código público",
+    "repos.p": "Se leen de la API de GitHub al cargar la página, así que no se quedan desactualizados.",
+    "form.rot": "formación", "form.tit": "Formación y certificaciones.",
+    "form.estudios": "estudios", "form.certs": "certificaciones",
+    "form.idiomas": "<b>Español</b> nativo · <b>Inglés</b> B2",
+    "contacto.rot": "contacto",
+    "contacto.tit": "Disponible para trabajo remoto.",
+    "contacto.p": "Roles de liderazgo móvil, Android, iOS y KMP, desde Lima.",
+    "pie": "Instrument Sans + IBM Plex Mono · Lima, Perú",
+    // Textos que arma el script
+    "lead": "lead", "hoy": "actualidad",
+    "btn.codigo": "Ver código", "btn.tienda": "Ver en la tienda",
+    "lbl.correo": "Correo", "lbl.cv": "CV", "lbl.descargar": "Descargar PDF",
+    "repos.cargando": "Leyendo repositorios…",
+    "repos.404": "No existe el usuario <code>{u}</code> en GitHub.",
+    "repos.403": "GitHub limitó las consultas desde esta red por un rato. Vuelve a cargar en unos minutos.",
+    "repos.vacio": "Todavía no hay repositorios públicos que mostrar.",
+    "repos.error": "No se pudo contactar a GitHub. Revisa tu conexión y vuelve a cargar.",
+    "repos.sindesc": "Sin descripción todavía.",
+    "tema.claro": "claro", "tema.oscuro": "oscuro", "tema.aria": "Cambiar tema",
+    "idioma.btn": "EN", "idioma.aria": "Switch to English",
+    "anio": ["año", "años"], "mes": ["mes", "meses"],
+    "locale": "es-PE"
+  },
+  en: {
+    "doc.titulo": "Marlon Arteaga — Mobile Lead · Android & iOS",
+    "doc.desc": "Marlon Mauro Arteaga Morales. Android & iOS Mobile Lead with 10+ years in banking, Kotlin Multiplatform and applied AI. Lima, Peru.",
+    "nav.perfil": "profile", "nav.exp": "experience", "nav.proy": "projects",
+    "nav.form": "education", "nav.contacto": "contact",
+    "hero.sub": 'Mobile Lead · <span class="and">Android</span> &amp; <span class="ios">iOS</span> · KMP · Lima, Peru',
+    "hero.p1": "10+ years designing and maintaining production mobile apps on both platforms, mostly for banking in Peru, Mexico and Chile. Clean architecture, tests, and decisions that hold up through years of maintenance.",
+    "hero.p2": "Now I bring the same discipline to <strong>applied AI</strong>: agents, RAG and orchestration deployed as infrastructure, not as demos.",
+    "btn.contactar": "Get in touch", "btn.cv": "Résumé (PDF)",
+    "cifra.anios": "years in mobile development", "cifra.bancos": "banks across Latin America",
+    "cifra.paises": "countries · PE · MX · CL",
+    "clientes": "Projects for",
+    "code.focus": '"Applied AI for product"',
+    "code.aria": "Profile written as a Kotlin configuration block",
+    "perfil.rot": "profile",
+    "perfil.tit": "Android and iOS, held to the same standard.",
+    "perfil.p1": "I lead mobile development: architecture, code review, and the unglamorous work of maintaining apps that are already in people's hands. Clean Architecture and MVVM aren't decoration — they're what keeps a codebase editable in the long run.",
+    "perfil.p2": "I also teach Android. Preparing classes forces me to justify every architectural decision, and that improves the code I write the rest of the week.",
+    "exp.rot": "experience",
+    "exp.tit": "Ten years of apps in production.",
+    "exp.p": "Mostly in banking and payments, where a mistake isn't just a bug — it's someone's money.",
+    "proy.rot": "projects",
+    "proy.tit": "Own products and open source.",
+    "proy.p": "Apps I design and build end to end.",
+    "repos.rot": "public code",
+    "repos.p": "Loaded from the GitHub API on page load, so they never go stale.",
+    "form.rot": "education", "form.tit": "Education and certifications.",
+    "form.estudios": "studies", "form.certs": "certifications",
+    "form.idiomas": "<b>Spanish</b> native · <b>English</b> B2",
+    "contacto.rot": "contact",
+    "contacto.tit": "Available for remote work.",
+    "contacto.p": "Mobile lead, Android, iOS and KMP roles, from Lima.",
+    "pie": "Instrument Sans + IBM Plex Mono · Lima, Peru",
+    "lead": "lead", "hoy": "present",
+    "btn.codigo": "View code", "btn.tienda": "View in store",
+    "lbl.correo": "Email", "lbl.cv": "Résumé", "lbl.descargar": "Download PDF (Spanish)",
+    "repos.cargando": "Loading repositories…",
+    "repos.404": "GitHub user <code>{u}</code> does not exist.",
+    "repos.403": "GitHub rate-limited requests from this network. Reload in a few minutes.",
+    "repos.vacio": "No public repositories to show yet.",
+    "repos.error": "Couldn't reach GitHub. Check your connection and reload.",
+    "repos.sindesc": "No description yet.",
+    "tema.claro": "light", "tema.oscuro": "dark", "tema.aria": "Toggle theme",
+    "idioma.btn": "ES", "idioma.aria": "Cambiar a español",
+    "anio": ["yr", "yrs"], "mes": ["mo", "mos"],
+    "locale": "en-US"
+  }
+};
 
 /* ═══════════════════════════════════════════════════
    De aquí para abajo no hace falta tocar nada
@@ -440,72 +791,143 @@ const APPS = [
 const esc = (t) => String(t ?? "").replace(/[&<>"]/g, (c) =>
   ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
 
-// ── Tema claro / oscuro ────────────────────────────
 const raiz = document.documentElement;
+let idioma = "es";
+const T = (k) => TEXTOS[idioma][k];
+const L = (v) => (v && typeof v === "object" && !Array.isArray(v)) ? v[idioma] : v;   // texto bilingüe
+
+// ── Tema claro / oscuro ────────────────────────────
 const btnTema = document.getElementById("btn-tema");
 
 function leerTema() {
   try { const g = localStorage.getItem("tema"); if (g) return g; } catch {}
   return matchMedia("(prefers-color-scheme: dark)").matches ? "oscuro" : "claro";
 }
-function aplicarTema(t) {
-  raiz.dataset.tema = t;
-  btnTema.textContent = t === "oscuro" ? "claro" : "oscuro";
-  try { localStorage.setItem("tema", t); } catch {}
+function rotularTema() {
+  btnTema.textContent = T(raiz.dataset.tema === "oscuro" ? "tema.claro" : "tema.oscuro");
+  btnTema.setAttribute("aria-label", T("tema.aria"));
 }
-aplicarTema(leerTema());
+function aplicarTema(t, guardar) {
+  raiz.dataset.tema = t;
+  rotularTema();
+  // Solo se recuerda una elección explícita; si no, sigue el tema del sistema.
+  if (guardar) try { localStorage.setItem("tema", t); } catch {}
+}
 btnTema.addEventListener("click", () =>
-  aplicarTema(raiz.dataset.tema === "oscuro" ? "claro" : "oscuro"));
+  aplicarTema(raiz.dataset.tema === "oscuro" ? "claro" : "oscuro", true));
 
-// ── Apps ───────────────────────────────────────────
+// ── Fechas ─────────────────────────────────────────
+function mes(aaaamm) {
+  const [a, m] = aaaamm.split("-").map(Number);
+  return new Date(a, m - 1, 1).toLocaleDateString(T("locale"), { month: "short", year: "numeric" });
+}
+function duracion(ini, fin) {
+  const [a1, m1] = ini.split("-").map(Number);
+  const hoy = new Date();
+  const [a2, m2] = fin ? fin.split("-").map(Number) : [hoy.getFullYear(), hoy.getMonth() + 1];
+  const total = (a2 - a1) * 12 + (m2 - m1) + 1;
+  const a = Math.floor(total / 12), m = total % 12;
+  const partes = [];
+  if (a) partes.push(`${a} ${T("anio")[a > 1 ? 1 : 0]}`);
+  if (m) partes.push(`${m} ${T("mes")[m > 1 ? 1 : 0]}`);
+  return partes.join(" ");
+}
+
+// ── Secciones ──────────────────────────────────────
+const tags = (lista) => `<ul class="tags">${lista.map((t) => `<li>${esc(t)}</li>`).join("")}</ul>`;
+
+function pintarStack() {
+  document.getElementById("stack").innerHTML = STACK.map((s) => `
+    <div class="item" data-p="${s.p}">
+      <h3>${esc(L(s.t))}</h3>
+      <p>${esc(L(s.d))}</p>
+    </div>`).join("");
+}
+
+function pintarExperiencia() {
+  document.getElementById("lista-exp").innerHTML = EXPERIENCIA.map((e) => `
+    <li class="exp">
+      <div class="exp-fecha">
+        <b>${esc(mes(e.ini))} — ${esc(e.fin ? mes(e.fin) : T("hoy"))}</b>
+        ${esc(duracion(e.ini, e.fin))} · ${esc(L(e.lugar))}
+      </div>
+      <div>
+        <div class="exp-cab">
+          <i class="punto" data-p="${e.p}"></i>
+          <h3>${esc(L(e.rol))}</h3>
+          ${e.lead ? `<span class="insignia">${esc(T("lead"))}</span>` : ""}
+        </div>
+        <p class="exp-org">${esc(L(e.org))}</p>
+        <p class="exp-desc">${esc(L(e.desc))}</p>
+        ${tags(e.pila)}
+      </div>
+    </li>`).join("");
+}
+
 function pintarApps() {
   document.getElementById("fichas-apps").innerHTML = APPS.map((a) => `
     <article class="app">
       <div class="app-cab">
-        <span class="punto" style="background:var(--${a.plataforma === "ios" ? "swift" : "kotlin"})"></span>
+        <i class="punto" data-p="${a.plataforma}"></i>
         <h3>${esc(a.nombre)}</h3>
-        <span class="app-org">Strawtechberry</span>
+        <span class="app-org">${esc(L(a.org))}</span>
       </div>
-      <p>${esc(a.resumen)}</p>
-      <ul class="tags">${a.pila.map((t) => `<li>${esc(t)}</li>`).join("")}</ul>
-      ${a.enlace ? `<a class="btn" href="${esc(a.enlace)}" target="_blank" rel="noopener">Ver la app</a>` : ""}
+      <p>${esc(L(a.resumen))}</p>
+      ${tags(a.pila)}
+      ${a.enlace ? `<a class="btn" href="${esc(a.enlace)}" target="_blank" rel="noopener">${esc(T(a.tipo === "tienda" ? "btn.tienda" : "btn.codigo"))}</a>` : ""}
     </article>`).join("");
 }
 
-// ── Contacto ───────────────────────────────────────
+function pintarFormacion() {
+  document.getElementById("lista-estudios").innerHTML = ESTUDIOS.map((e) => `
+    <div class="fila"><dt>${esc(e.periodo)}</dt><dd>${esc(L(e.titulo))}<small>${esc(e.inst)}</small></dd></div>`).join("");
+
+  document.getElementById("lista-certs").innerHTML = CERTIFICADOS.map((g) => `
+    <div class="item" data-p="${g.p}">
+      <h3>${esc(L(g.t))}</h3>
+      <ul>${g.items.map(([nombre, emisor]) =>
+        `<li>${esc(L(nombre))}${emisor ? `<small>${esc(emisor)}</small>` : ""}</li>`).join("")}</ul>
+    </div>`).join("");
+}
+
 function pintarContacto() {
   document.getElementById("datos-contacto").innerHTML = `
-    <div class="fila"><dt>Correo</dt><dd><a href="mailto:${esc(CONTACTO.correo)}">${esc(CONTACTO.correo)}</a></dd></div>
+    <div class="fila"><dt>${esc(T("lbl.correo"))}</dt><dd><a href="mailto:${esc(CONTACTO.correo)}">${esc(CONTACTO.correo)}</a></dd></div>
     <div class="fila"><dt>LinkedIn</dt><dd><a href="${esc(CONTACTO.linkedin)}" target="_blank" rel="noopener">Marlon Mauro Arteaga Morales</a></dd></div>
     <div class="fila"><dt>GitHub</dt><dd><a href="${esc(CONTACTO.github)}" target="_blank" rel="noopener">@${esc(USUARIO_GITHUB)}</a></dd></div>
-    <div class="fila"><dt>CV</dt><dd><a href="${esc(CONTACTO.cv)}" download>Descargar PDF</a></dd></div>`;
+    <div class="fila"><dt>${esc(T("lbl.cv"))}</dt><dd><a href="${esc(CONTACTO.cv)}" download>${esc(T("lbl.descargar"))}</a></dd></div>`;
 }
 
 // ── Repositorios ───────────────────────────────────
 const contRepos = document.getElementById("lista-repos");
-const estado = (html) => { contRepos.innerHTML = `<p class="estado">${html}</p>`; };
-const fecha = (iso) => new Date(iso).toLocaleDateString("es-PE", { month: "short", year: "numeric" });
+let reposCargados = null;      // se guardan para repintar al cambiar de idioma
+let estadoRepos = "repos.cargando";
 
-function pintarRepos(repos) {
-  contRepos.innerHTML = repos.map((r) => `
+function pintarEstadoRepos() {
+  contRepos.innerHTML = `<p class="estado">${T(estadoRepos).replace("{u}", esc(USUARIO_GITHUB))}</p>`;
+}
+
+function pintarRepos() {
+  if (!reposCargados) { pintarEstadoRepos(); return; }
+  contRepos.innerHTML = reposCargados.map((r) => `
     <a class="repo" href="${esc(r.html_url)}" target="_blank" rel="noopener">
       <div>
         <p class="repo-nom">${esc(r.name)}</p>
-        <p class="repo-desc">${esc(r.description || NOTAS_REPOS[r.name] || "Sin descripción todavía.")}</p>
+        <p class="repo-desc">${esc(L(NOTAS_REPOS[r.name]) || r.description || T("repos.sindesc"))}</p>
       </div>
       <div class="repo-meta">
         ${r.language ? `<span class="leng" data-l="${esc(r.language)}"><i></i>${esc(r.language)}</span><br>` : ""}
-        ${r.stargazers_count ? `★ ${r.stargazers_count} · ` : ""}${fecha(r.pushed_at)}
+        ${r.stargazers_count ? `★ ${r.stargazers_count} · ` : ""}${esc(new Date(r.pushed_at).toLocaleDateString(T("locale"), { month: "short", year: "numeric" }))}
       </div>
     </a>`).join("");
 }
 
 async function cargarRepos() {
-  estado("Leyendo repositorios…");
+  estadoRepos = "repos.cargando"; pintarEstadoRepos();
   try {
     const r = await fetch(`https://api.github.com/users/${USUARIO_GITHUB}/repos?per_page=100&sort=updated`);
-    if (r.status === 404) { estado(`No existe el usuario <code>${esc(USUARIO_GITHUB)}</code> en GitHub.`); return; }
-    if (r.status === 403) { estado("GitHub limitó las consultas desde esta red por un rato. Vuelve a cargar en unos minutos."); return; }
+    if (r.status === 404) { estadoRepos = "repos.404"; pintarEstadoRepos(); return; }
+    if (r.status === 403) { estadoRepos = "repos.403"; pintarEstadoRepos(); return; }
     if (!r.ok) throw new Error(r.status);
 
     let repos = (await r.json()).filter((x) => !x.fork && !x.archived);
@@ -521,12 +943,43 @@ async function cargarRepos() {
       repos = repos.slice(0, 6);
     }
 
-    if (!repos.length) { estado("Todavía no hay repositorios públicos que mostrar."); return; }
-    pintarRepos(repos);
+    if (!repos.length) { estadoRepos = "repos.vacio"; pintarEstadoRepos(); return; }
+    reposCargados = repos;
+    pintarRepos();
   } catch {
-    estado("No se pudo contactar a GitHub. Revisa tu conexión y vuelve a cargar.");
+    estadoRepos = "repos.error"; pintarEstadoRepos();
   }
 }
+
+// ── Idioma ES / EN ─────────────────────────────────
+const btnIdioma = document.getElementById("btn-idioma");
+
+function leerIdioma() {
+  const q = new URLSearchParams(location.search).get("lang");
+  if (q === "es" || q === "en") return q;
+  try { const g = localStorage.getItem("idioma"); if (g === "es" || g === "en") return g; } catch {}
+  return (navigator.language || "es").toLowerCase().startsWith("es") ? "es" : "en";
+}
+
+function aplicarIdioma(i, guardar) {
+  idioma = i;
+  raiz.lang = i;
+  document.title = T("doc.titulo");
+  document.querySelector('meta[name="description"]').setAttribute("content", T("doc.desc"));
+  document.querySelectorAll("[data-i18n]").forEach((el) => { el.innerHTML = T(el.dataset.i18n); });
+  document.querySelectorAll("[data-i18n-aria]").forEach((el) => { el.setAttribute("aria-label", T(el.dataset.i18nAria)); });
+  btnIdioma.textContent = T("idioma.btn");
+  btnIdioma.setAttribute("aria-label", T("idioma.aria"));
+  rotularTema();
+  pintarStack();
+  pintarExperiencia();
+  pintarApps();
+  pintarFormacion();
+  pintarContacto();
+  pintarRepos();
+  if (guardar) try { localStorage.setItem("idioma", i); } catch {}
+}
+btnIdioma.addEventListener("click", () => aplicarIdioma(idioma === "es" ? "en" : "es", true));
 
 // ── Aparición al hacer scroll ──────────────────────
 function activarAparicion() {
@@ -544,8 +997,8 @@ function activarAparicion() {
   bloques.forEach((b) => obs.observe(b));
 }
 
-pintarApps();
-pintarContacto();
+aplicarTema(leerTema());
+aplicarIdioma(leerIdioma());
 cargarRepos();
 activarAparicion();
 </script>
