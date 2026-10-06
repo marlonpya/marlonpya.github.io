@@ -389,6 +389,7 @@ a{color:inherit;text-decoration:none}
 <span class="ln">    platforms  = listOf(<span class="s">"Android"</span>, <span class="s">"iOS"</span>)</span>
 <span class="ln">    stack      = listOf(<span class="s">"Kotlin"</span>, <span class="s">"Swift"</span>, <span class="s">"KMP"</span>)</span>
 <span class="ln">    experience = 10.years</span>
+<span class="ln">    teaches    = <span class="s">"Android @ Zegel"</span></span>
 <span class="ln">    focus      = <span class="s" data-i18n="code.focus">"IA aplicada a producto"</span></span>
 <span class="ln">    based      = <span class="s">"Lima, PE"</span></span>
 <span class="ln">    remote     = <span class="k">true</span></span>
@@ -409,8 +410,8 @@ a{color:inherit;text-decoration:none}
     adorno — son lo que mantiene una base de código editable a largo plazo.
   </p>
   <p class="parrafo" data-i18n="perfil.p2">
-    También enseño Android. Preparar clases obliga a justificar cada decisión de
-    arquitectura, y eso mejora el código que escribo el resto de la semana.
+    Además soy docente de desarrollo Android en <strong>Zegel</strong>. Preparar clases obliga
+    a justificar cada decisión de arquitectura, y eso mejora el código que escribo el resto de la semana.
   </p>
   <div class="stack" id="stack"></div>
 </section>
@@ -532,11 +533,11 @@ const STACK = [
     d: { es: "Kotlin Multiplatform y Compose Multiplatform: lógica y UI compartidas, Ktor, Koin, Room y DataStore.",
          en: "Kotlin Multiplatform and Compose Multiplatform: shared logic and UI, Ktor, Koin, Room and DataStore." } },
   { p: "neutro", t: { es: "Web y backend", en: "Web & backend" },
-    d: { es: "React, TypeScript, Astro y Vue. Supabase, Firebase, PostgreSQL y sincronización offline.",
-         en: "React, TypeScript, Astro and Vue. Supabase, Firebase, PostgreSQL and offline sync." } },
+    d: { es: "React, TypeScript, Astro, Vue y PHP/Laravel. Supabase, Firebase (FCM, Crashlytics, Analytics), PostgreSQL y sincronización offline.",
+         en: "React, TypeScript, Astro, Vue and PHP/Laravel. Supabase, Firebase (FCM, Crashlytics, Analytics), PostgreSQL and offline sync." } },
   { p: "neutro", t: { es: "Seguridad y calidad", en: "Security & quality" },
-    d: { es: "OWASP Mobile Top 10, Keychain, SSL/TLS, pruebas unitarias y de UI, CI/CD con Fastlane y GitLab CI.",
-         en: "OWASP Mobile Top 10, Keychain, SSL/TLS, unit and UI tests, CI/CD with Fastlane and GitLab CI." } },
+    d: { es: "OWASP Mobile Top 10, DexGuard, certificate pinning, detección de root/jailbreak, Keychain y SSL/TLS. Pruebas unitarias y de UI, CI/CD con Fastlane.",
+         en: "OWASP Mobile Top 10, DexGuard, certificate pinning, root/jailbreak detection, Keychain and SSL/TLS. Unit and UI tests, CI/CD with Fastlane." } },
   { p: "neutro", t: { es: "IA aplicada", en: "Applied AI" },
     d: { es: "Python, Claude API, LangChain, LangGraph. RAG y agentes con herramientas. Claude Code en el día a día.",
          en: "Python, Claude API, LangChain, LangGraph. RAG and tool-using agents. Claude Code in daily work." } },
@@ -549,8 +550,16 @@ const STACK = [
 ];
 
 // ini / fin en formato "AAAA-MM"; fin: null = actualidad.
+// insignia (opcional): "lead" | "docente"
 const EXPERIENCIA = [
-  { ini: "2026-03", fin: null, p: "android", lead: true,
+  { ini: "2026-04", fin: null, p: "android", insignia: "docente",
+    rol: { es: "Docente de Desarrollo Android", en: "Android Development Instructor" },
+    org: { es: "Zegel", en: "Zegel" },
+    lugar: { es: "Lima · Remoto", en: "Lima · Remote" },
+    desc: { es: "Docente del curso de desarrollo de aplicaciones Android con Kotlin: fundamentos de desarrollo móvil, buenas prácticas de programación y proyectos aplicados.",
+            en: "Instructor of the Android app development course with Kotlin: mobile development fundamentals, programming best practices and hands-on projects." },
+    pila: ["Kotlin", "Android", "Clean Architecture", "MVVM"] },
+  { ini: "2026-03", fin: null, p: "android", insignia: "lead",
     rol: { es: "Lead Mobile Android", en: "Android Mobile Lead" },
     org: { es: "Indra · cliente Interbank", en: "Indra · client: Interbank" },
     lugar: { es: "Remoto", en: "Remote" },
@@ -582,9 +591,9 @@ const EXPERIENCIA = [
     rol: { es: "Developer Mobile", en: "Mobile Developer" },
     org: { es: "Neoris · cliente BCI (Chile)", en: "Neoris · client: BCI (Chile)" },
     lugar: { es: "Remoto", en: "Remote" },
-    desc: { es: "BCI Personas y Empresas: banca móvil para transferencias, pago de servicios y BCI Pass como segundo factor. Resolución de vulnerabilidades y pruebas en flujos críticos.",
-            en: "BCI Personas & Empresas: mobile banking for transfers, bill payments and BCI Pass as a second factor. Vulnerability remediation and tests on critical flows." },
-    pila: ["Kotlin", "Jetpack Compose", "MVVM", "Swift", "UIKit", "VIPER"] },
+    desc: { es: "BCI Personas y Empresas: banca móvil para transferencias, pago de servicios y BCI Pass como segundo factor. Evolución de apps en producción, debugging, rendimiento y resolución de vulnerabilidades (certificate pinning y detección de root/jailbreak con DexGuard), con pruebas en flujos críticos.",
+            en: "BCI Personas & Empresas: mobile banking for transfers, bill payments and BCI Pass as a second factor. Feature work on production apps, debugging, performance and vulnerability remediation (certificate pinning and root/jailbreak detection with DexGuard), with tests on critical flows." },
+    pila: ["Kotlin", "Jetpack Compose", "MVVM", "DexGuard", "Swift", "UIKit", "VIPER"] },
   { ini: "2023-04", fin: "2025-01", p: "multi",
     rol: { es: "Developer Mobile", en: "Mobile Developer" },
     org: { es: "CSTI · cliente Culqi", en: "CSTI · client: Culqi" },
@@ -592,34 +601,34 @@ const EXPERIENCIA = [
     desc: { es: "CulqiFull: pago rápido integrado con POS para comercios (ventas, cobros, anulaciones y pago de servicios), más Culqi Panel, una PWA de operaciones de venta.",
             en: "CulqiFull: POS-integrated fast payments for merchants (sales, charges, voids and bill payments), plus Culqi Panel, a PWA for sales operations." },
     pila: ["Jetpack Compose", "MVVM", "SwiftUI", "VIP", "Combine", "Astro", "Vue"] },
-  { ini: "2021-11", fin: "2023-02", p: "multi", lead: true,
+  { ini: "2021-11", fin: "2023-02", p: "multi", insignia: "lead",
     rol: { es: "Lead Mobile", en: "Mobile Lead" },
     org: { es: "Citibanamex · México", en: "Citibanamex · Mexico" },
     lugar: { es: "Remoto", en: "Remote" },
-    desc: { es: "OPM Transfer (Banco Nacional de México): transferencias por QR, pago de servicios y recargas. Liderazgo técnico del equipo: análisis, diseño, UI, pruebas y resolución de vulnerabilidades.",
-            en: "OPM Transfer (Banco Nacional de México): QR transfers, bill payments and top-ups. Technical lead of the team: analysis, design, UI, testing and vulnerability remediation." },
-    pila: ["Kotlin", "Jetpack Compose", "Swift", "SwiftUI", "VIP", "Fastlane", "GitLab CI"] },
+    desc: { es: "OPM Transfer (Banco Nacional de México): transferencias por QR, pago de servicios y recargas. Liderazgo técnico del equipo: análisis, diseño, UI, pruebas y resolución de vulnerabilidades (certificate pinning y detección de root/jailbreak con DexGuard).",
+            en: "OPM Transfer (Banco Nacional de México): QR transfers, bill payments and top-ups. Technical lead of the team: analysis, design, UI, testing and vulnerability remediation (certificate pinning and root/jailbreak detection with DexGuard)." },
+    pila: ["Kotlin", "Jetpack Compose", "DexGuard", "Swift", "SwiftUI", "VIP", "Fastlane", "GitLab CI"] },
   { ini: "2019-10", fin: "2021-10", p: "android",
     rol: { es: "Developer Mobile", en: "Mobile Developer" },
     org: { es: "Everis NTT Data · BCP, Interbank, Alicorp", en: "Everis NTT Data · BCP, Interbank, Alicorp" },
     lugar: { es: "Lima", en: "Lima" },
-    desc: { es: "Banca Móvil de BCP e Interbank: optimización y nuevas funcionalidades, incluido el módulo de compatibilidad Huawei (HMS, Map Kit). Proof of Delivery para Alicorp con modo offline.",
-            en: "BCP and Interbank mobile banking: optimization and new features, including the Huawei compatibility module (HMS, Map Kit). Offline-first Proof of Delivery app for Alicorp." },
-    pila: ["Kotlin", "MVVM", "Coroutines", "Room", "WorkManager", "HMS"] },
-  { ini: "2019-06", fin: "2019-09", p: "multi", lead: true,
+    desc: { es: "Mantenimiento evolutivo y correctivo de las bancas móviles de BCP e Interbank, dos de las de mayor base de usuarios del Perú: incidencias en producción, código heredado, rendimiento y nuevas funcionalidades, incluido el módulo Huawei (HMS, Map Kit). Proof of Delivery offline para Alicorp.",
+            en: "Evolutive and corrective maintenance of the BCP and Interbank mobile banking apps, two of the largest by user base in Peru: production incidents, legacy code, performance and new features, including the Huawei module (HMS, Map Kit). Offline Proof of Delivery app for Alicorp." },
+    pila: ["Kotlin", "Java", "MVVM", "Coroutines", "Room", "WorkManager", "HMS"] },
+  { ini: "2019-06", fin: "2019-09", p: "multi", insignia: "lead",
     rol: { es: "Lead Mobile Android e iOS", en: "Android & iOS Mobile Lead" },
     org: { es: "Encora · Caja Piura", en: "Encora · Caja Piura" },
     lugar: { es: "Lima", en: "Lima" },
     desc: { es: "Banca Móvil Caja Piura: lideré análisis, diseño y arquitectura, ceremonias Scrum y despliegues a Google Play y App Store.",
             en: "Caja Piura mobile banking: led analysis, design and architecture, Scrum ceremonies, and releases to Google Play and the App Store." },
-    pila: ["Kotlin", "MVVM", "Swift", "VIPER", "UIKit", "TestFlight"] },
+    pila: ["Kotlin", "Java", "MVVM", "Swift", "VIPER", "UIKit", "TestFlight"] },
   { ini: "2016-05", fin: "2019-06", p: "multi",
     rol: { es: "Developer Mobile", en: "Mobile Developer" },
     org: { es: "Everis NTT Data · GMD · UC Web", en: "Everis NTT Data · GMD · UC Web" },
     lugar: { es: "Lima", en: "Lima" },
-    desc: { es: "Claro Ventas y Mi Entel (Android); Banca Móvil del Banco de la Nación (Android e iOS); Liaison (iOS) y Seguridad Chulucanas (Android).",
-            en: "Claro Ventas and Mi Entel (Android); Banco de la Nación mobile banking (Android & iOS); Liaison (iOS) and Seguridad Chulucanas (Android)." },
-    pila: ["Kotlin", "MVVM", "Retrofit", "Room", "Swift", "MVC", "UIKit", "CoreData"] }
+    desc: { es: "Claro Ventas y Mi Entel (Android); Banca Móvil del Banco de la Nación (Android e iOS); Liaison (iOS), Seguridad Chulucanas (Android) y desarrollo web con PHP/Laravel y MySQL.",
+            en: "Claro Ventas and Mi Entel (Android); Banco de la Nación mobile banking (Android & iOS); Liaison (iOS), Seguridad Chulucanas (Android) and web development with PHP/Laravel and MySQL." },
+    pila: ["Java", "Kotlin", "MVP", "MVVM", "XML/Views", "Swift", "UIKit", "MVC", "PHP/Laravel"] }
 ];
 
 // tipo: "codigo" (repo) | "tienda" (Play Store / App Store); enlace vacío oculta el botón.
@@ -704,7 +713,7 @@ const TEXTOS = {
     "perfil.rot": "perfil",
     "perfil.tit": "Android e iOS, con el mismo criterio.",
     "perfil.p1": "Lidero desarrollo móvil: arquitectura, revisión de código y el trabajo poco vistoso de sostener apps que ya están en manos de gente. Clean Architecture y MVVM no son adorno — son lo que mantiene una base de código editable a largo plazo.",
-    "perfil.p2": "También enseño Android. Preparar clases obliga a justificar cada decisión de arquitectura, y eso mejora el código que escribo el resto de la semana.",
+    "perfil.p2": "Además soy docente de desarrollo Android en <strong>Zegel</strong>. Preparar clases obliga a justificar cada decisión de arquitectura, y eso mejora el código que escribo el resto de la semana.",
     "exp.rot": "experiencia",
     "exp.tit": "Diez años de apps en producción.",
     "exp.p": "La mayor parte en banca y pagos, donde un error no es solo un bug: es el dinero de alguien.",
@@ -721,7 +730,7 @@ const TEXTOS = {
     "contacto.p": "Roles de liderazgo móvil, Android, iOS y KMP, desde Lima.",
     "pie": "Instrument Sans + IBM Plex Mono · Lima, Perú",
     // Textos que arma el script
-    "lead": "lead", "hoy": "actualidad",
+    "insignia.lead": "lead", "insignia.docente": "docente", "hoy": "actualidad",
     "btn.codigo": "Ver código", "btn.tienda": "Ver en la tienda",
     "lbl.correo": "Correo", "lbl.cv": "CV", "lbl.descargar": "Descargar PDF",
     "repos.cargando": "Leyendo repositorios…",
@@ -752,7 +761,7 @@ const TEXTOS = {
     "perfil.rot": "profile",
     "perfil.tit": "Android and iOS, held to the same standard.",
     "perfil.p1": "I lead mobile development: architecture, code review, and the unglamorous work of maintaining apps that are already in people's hands. Clean Architecture and MVVM aren't decoration — they're what keeps a codebase editable in the long run.",
-    "perfil.p2": "I also teach Android. Preparing classes forces me to justify every architectural decision, and that improves the code I write the rest of the week.",
+    "perfil.p2": "I also teach Android development at <strong>Zegel</strong>. Preparing classes forces me to justify every architectural decision, and that improves the code I write the rest of the week.",
     "exp.rot": "experience",
     "exp.tit": "Ten years of apps in production.",
     "exp.p": "Mostly in banking and payments, where a mistake isn't just a bug — it's someone's money.",
@@ -768,7 +777,7 @@ const TEXTOS = {
     "contacto.tit": "Available for remote work.",
     "contacto.p": "Mobile lead, Android, iOS and KMP roles, from Lima.",
     "pie": "Instrument Sans + IBM Plex Mono · Lima, Peru",
-    "lead": "lead", "hoy": "present",
+    "insignia.lead": "lead", "insignia.docente": "instructor", "hoy": "present",
     "btn.codigo": "View code", "btn.tienda": "View in store",
     "lbl.correo": "Email", "lbl.cv": "Résumé", "lbl.descargar": "Download PDF (Spanish)",
     "repos.cargando": "Loading repositories…",
@@ -855,7 +864,7 @@ function pintarExperiencia() {
         <div class="exp-cab">
           <i class="punto" data-p="${e.p}"></i>
           <h3>${esc(L(e.rol))}</h3>
-          ${e.lead ? `<span class="insignia">${esc(T("lead"))}</span>` : ""}
+          ${e.insignia ? `<span class="insignia">${esc(T("insignia." + e.insignia))}</span>` : ""}
         </div>
         <p class="exp-org">${esc(L(e.org))}</p>
         <p class="exp-desc">${esc(L(e.desc))}</p>
